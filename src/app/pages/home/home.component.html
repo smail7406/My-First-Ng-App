@@ -1,0 +1,57 @@
+<h2>HOME</h2>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit officia culpa, expedita in, necessitatibus atque provident voluptatum maiores quos fugit facilis iusto sint accusamus eveniet. Eligendi, consectetur? Nostrum, amet nobis.</p>
+<div><img class="img-fluid rounded" [src]="'./assets/images/' + jsonImages[randomIndex].url" (click)="console(sourceImage)" [alt]="jsonImages[randomIndex].title" (mouseover)="changeRandom()" (mouseout)="changeRandom()">
+</div>
+<div><img class="img-fluid rounded" [src]="'./assets/images/' + sourceImage" (click)="console(sourceImage)" [alt]="jsonImages[randomIndex].title" (mouseover)="changeRandom()" (mouseout)="changeRandom()">
+</div>
+<div class="row mt-3">
+    <h3>Dynamic style using</h3>
+    <p [ngStyle]="{'color': valColor}" (click)="valColor='green'">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eaque dicta dolorum libero necessitatibus? Quia expedita ullam labore quam. Fugit voluptates odit saepe laborum totam quibusdam commodi eveniet assumenda soluta aut.</p>
+</div>
+<div class="row mt-3">
+    <h3>Change the size with variable</h3>
+    <p [ngStyle]=varObjet> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, delectus hic cum doloribus, beatae blanditiis commodi dignissimos tempore eligendi minus amet nam repellat quis repudiandae, quibusdam corporis cumque sapiente porro? </p>
+</div>
+<div class="row mt-3">
+    <h3>Dynamic class using [ngClass]</h3>
+    <div class="text-center"><button class="btn-primary " (click)="textPrimary = !textPrimary">Change the color</button></div>
+    <p [ngClass]="{'text-primary': textPrimary}">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis debitis molestiae fugiat a qui earum mollitia dolorum. Amet corporis vero at enim quos totam praesentium recusandae voluptate, necessitatibus, consequatur saepe.</p>
+</div>
+<div class="row mt-3">
+    <h3>Dynamic display *ngIf</h3>
+    <div class="text-center"><button class="btn-primary" (click)="displayParag=!displayParag">change de parag display position</button></div>
+    <p *ngIf="displayParag; else otherParag ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, est quo ad voluptate sed iure veritatis illum dolore facere? Assumenda aut saepe repellat officia veritatis fuga laborum recusandae. Deleniti, obcaecati! </p>
+    <ng-template #otherParag>
+        <p>ceci est un autre parag</p>
+    </ng-template>
+</div>
+<div class="row mt-3">
+    <h3>Dynamic display [ngSxitch] *ngSwitchCase</h3>
+    <div class="text-center"><button class="btn-primary" (click)="incSwitch()">Click to switch</button></div>
+    <div [ngSwitch]="displaySwitch">
+        <p *ngSwitchCase="1">Parag 1</p>
+        <p *ngSwitchCase="1">Parag 2</p>
+        <p *ngSwitchCase="1">Parag 3</p>
+    </div>
+</div>
+<div class="row mt-3">
+    <h3>Dynamic display </h3>
+    <div [ngSwitch]="displaySwitch">
+        <ul>
+            <li *ngFor="let line of arrayImages" [ngStyle]="{'list-style-type': 'none'}"> Line for {{line}}
+                <img [src]="'./assets/images/'+ line" width="50" />
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row mt-3">
+    <h3>Dynamic display *ngFor on Json data</h3>
+    <div [ngSwitch]="displaySwitch">
+        <ul class="row">
+            <li *ngFor="let img of jsonImages" [ngStyle]="{'list-style-type': 'none'}"> Line for {{img.title}}
+                <img [src]="'./assets/images/'+ img.url" width="50" /> <br>
+                <span>{{img.author}}</span>
+            </li>
+        </ul>
+    </div>
+</div>
