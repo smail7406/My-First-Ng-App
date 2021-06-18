@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from'../../../environments/environment'
 
 @Component({
   selector: 'app-home',
@@ -47,7 +48,10 @@ changeRandom(){
 }
   constructor() { }
 
+
   ngOnInit(): void {
+    console.log(environment);
+    
     console.log('jsonImages',this.jsonImages[this.randomIndex].title);
 
   }

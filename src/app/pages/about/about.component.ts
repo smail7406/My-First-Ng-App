@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
+
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
@@ -10,6 +11,7 @@ export class AboutComponent implements OnInit {
 
 galery: any;
 page = 1;
+
   constructor(private http:HttpClient) { }
 
 loadPics(way='',nb = this.page){
@@ -41,6 +43,7 @@ loadPics(way='',nb = this.page){
 }
 
   ngOnInit(): void {
+  
 
     this.loadPics();
   }
